@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="cn.chenyuanming.alignedtextview.MainActivity">
+
+    <cn.chenyuanming.alignedtextview.AlignedTextView
+        android:layout_marginTop="10dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="#b3f7e4"
+        android:text="Hello World!" />
+
+    <cn.chenyuanming.alignedtextview.AlignedTextView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#b3f7e4"
+        android:text="一二三四" />
+
+    <cn.chenyuanming.alignedtextview.AlignedTextView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#b3f7e4"
+        android:text="一二三四五" />
+
+    <cn.chenyuanming.alignedtextview.AlignedTextView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#b3f7e4"
+        android:text="一二三四五六" />
+
+    <cn.chenyuanming.alignedtextview.AlignedTextView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#b3f7e4"
+        android:text="一二三四五六七八九十"
+        android:id="@+id/alignedTextView" />
+</LinearLayout>
