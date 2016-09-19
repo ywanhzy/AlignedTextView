@@ -3,7 +3,6 @@ package cn.chenyuanming.alignedtextview;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Rect;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
@@ -33,6 +32,7 @@ public class AlignedTextView extends TextView {
         Paint paint = new Paint();
         paint.setTextSize(getTextSize());
         paint.setColor(getCurrentTextColor());
+        paint.setAntiAlias(true);
         float xOffset = 0;
         int yOffset = (int) ((canvas.getHeight() / 2) - ((paint.descent() + paint.ascent()) / 2));
         float canvasLength = getMeasuredWidth();
@@ -44,7 +44,7 @@ public class AlignedTextView extends TextView {
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
             canvas.translate(-lineSpacing * getTextSize() / 2, 0);
-            paint.setLetterSpacing(lineSpacing);  // setLetterSpacing is only available from LOLLIPOP and on
+            paint.setLetterSpacing(lineSpacing);
             canvas.drawText(text, xOffset, yOffset, paint);
         } else {
             float spacePercentage = lineSpacing;
@@ -61,10 +61,7 @@ public class AlignedTextView extends TextView {
      * Otherwise, there will be space between each letter. The  value is a fraction of the width of a blank space.
      */
     private int drawKernedText(Canvas canvas, String text, float xOffset, float yOffset, Paint paint, float kernPercentage) {
-        Rect textRect = new Rect();
         int width = 0;
-        int space = Math.round(paint.measureText(" ") * kernPercentage);
-//        canvas.translate(paint.measureText(" "),0);
         for (int i = 0; i < text.length(); i++) {
             if (canvas != null) {
                 String s = String.valueOf(text.charAt(i));
@@ -72,15 +69,6 @@ public class AlignedTextView extends TextView {
                 canvas.translate(paint.measureText(s),0);
                 canvas.translate(getTextSize()*kernPercentage,0);
             }
-//            int charWidth;
-//            if (text.charAt(i) == ' ') {
-//                charWidth = Math.round(paint.measureText(String.valueOf(text.charAt(i)))) + space;
-//            } else {
-//                paint.getTextBounds(text, i, i + 1, textRect);
-//                charWidth = textRect.width() + space;
-//            }
-//            xOffset += charWidth;
-//            width += charWidth;
         }
         return width;
     }
